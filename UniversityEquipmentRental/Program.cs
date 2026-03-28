@@ -47,6 +47,10 @@ rentalService.AddUser(employee);
 Console.WriteLine(student);
 Console.WriteLine(employee);
 
+var overdueRental = new Rental(employee, camera1, DateTime.Now.AddDays(-10), 3);
+camera1.MarkAsBorrowed();
+rentalRepository.Add(overdueRental);
+
 Console.WriteLine("\n=== DOSTĘPNY SPRZĘT ===");
 foreach (var equipment in rentalService.GetAvailableEquipment())
 {
